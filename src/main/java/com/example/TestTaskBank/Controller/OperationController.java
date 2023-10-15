@@ -42,7 +42,9 @@ public class OperationController {
             responses = {
                     @ApiResponse(responseCode = "201", content = @Content(mediaType = "application/json")),
                     @ApiResponse(responseCode = "400", description = "if pin of name is incorrect, decryption in the message field"),
-                    @ApiResponse(responseCode = "404", description = "if account not found, decryption in the message field")
+                    @ApiResponse(responseCode = "404", description = "if account not found, decryption in the message field"),
+                    @ApiResponse(responseCode = "409", description = "if there are not enough funds in the account, decryption in the message field")
+
             })
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Operation> create (@RequestBody OperationInfo operationInfo) {
